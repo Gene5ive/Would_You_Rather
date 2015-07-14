@@ -1,21 +1,28 @@
 <li>
   <div class="row">
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 text-center">
-      <p><%= link_to question.option_one, like_question_path(question), id: "option_one_vote", class: "btn btn-success", remote: true, method: :post %></p>
+      <%= image_tag(question.image_one.url(:thumb)) %>
+      <p><%= link_to question.option_one, like_question_path(question),
+             id: "option_one_vote", class: "btn btn-success", remote: true, method: :post %>
+      </p>
       <p>Votes: <span id="option_one_votes"><%= question.get_upvotes.size %></span></p>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
       <strong>
       <p>OR</p>
       </strong>
-
-        <p><%= link_to 'Edit', edit_question_path(question), id: "edit_question_link", remote: true %> |
-           <%= link_to 'Delete', question_path(question),
+        <p>
+          <%= link_to 'Edit', edit_question_path(question), id: "edit_question_link", remote: true %> |
+          <%= link_to 'Delete', question_path(question),
                :data => {:confirm => "Are you sure?",
-                         :method  => "delete"} %> </p>
+                         :method  => "delete"} %>
+        </p>
     </div>
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 text-center">
-      <p><%= link_to question.option_two, dislike_question_path(question), id: "option_two_vote", class: "btn btn-success", remote: true, method: :post %></p>
+      <%= image_tag(question.image_two.url(:thumb)) %>
+      <p><%= link_to question.option_two, dislike_question_path(question),
+             id: "option_two_vote", class: "btn btn-success", remote: true, method: :post %>
+      </p>
       <p>Votes: <span id="option_two_votes"><%= question.get_downvotes.size %></span></p>
     </div>
   </div>

@@ -1,7 +1,15 @@
 <%= form_for @question, remote: true do |f| %>
-  <%= f.label :option_one %>
-  <%= f.text_field :option_one %>
-  <%= f.label :option_two %>
-  <%= f.text_field :option_two %>
+  <div class="row">
+    <span><%= f.label :image_one %>
+    <%= f.file_field :image_one %>
+    <%= f.label :option_one %>
+    <%= f.text_field :option_one %></span>
+  </div>
+  <div class="row">
+    <span><%= f.label :image_two %>
+    <%= f.file_field :image_two %>
+    <%= f.label :option_two %>
+    <%= f.text_field :option_two %></span>
+  </div>
   <%= f.submit %>
 <% end %>

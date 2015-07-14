@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'acts_as_votable'
 gem 'protected_attributes'
+gem 'paperclip', '~> 4.1'
 
 
 # Use ActiveModel has_secure_password
