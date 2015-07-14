@@ -1,11 +1,11 @@
 @import "bootstrap-sprockets";
+@import "./variables";
 @import "bootstrap";
-
+@import "./bootswatch";
 
 .navbar {
  border: 0;
  border-radius: 0;
- background: #999;
 }
 
 .navbar-default .navbar-nav li a {
