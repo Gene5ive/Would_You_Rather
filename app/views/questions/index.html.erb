@@ -1,9 +1,7 @@
-<h1>Would you rather?</h1>
+<h1 class="page-header text-center">Would you rather...</h1>
 
-<%= link_to 'New Question', new_question_path, id: "new_question_link", remote: true %>
+<p class="text-center"><%= link_to 'New Question', new_question_path, id: "new_question_link", remote: true %></p>
 
-<div class="container">
-  <ul id="questions_list">
-    <%= render(@questions) %>
-  </ul>
-</div>
+<ul id="questions_list">
+  <%= render(@questions) %>
+</ul>

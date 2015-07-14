@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @questions = Question.all
   end
@@ -29,9 +31,12 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:notice] = "Question successfully edited."
-      redirect_to questions_path
     else
       render :edit
+    end
+    respond_to do |format|
+      format.html { redirect_to questions_path }
+      format.js
     end
   end
 
@@ -40,6 +45,22 @@ class QuestionsController < ApplicationController
     @question.destroy
     flash[:notice] = "Question removed"
     redirect_to questions_path
+  end
+
+  def upvote
+    @question = Question.find(params[:id])
+    @question.upvote_by current_user
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    @question.downvote_by current_user
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
